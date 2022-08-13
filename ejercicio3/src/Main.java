@@ -2,7 +2,7 @@ import java.sql.Array;
 
 public class Main {
     public static void main(String[] args) {
-    String [] nombres = new String[]{"jorge","pedro","mati"};
+    String [] nombres = new String[]{"jorge","pedro","maria","mati"};
     for (int i = 0; i < nombres.length ;i++){
         String nombresA = nombres[i] + " ";
             for(int j = 0; j < 1; j++){
