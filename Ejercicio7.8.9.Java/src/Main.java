@@ -10,75 +10,75 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        reverse("pedro");
-        System.out.println();
-        String[] array1 = new String[]{"Hola", "que", "tal", "?"};
-        for (String valores : array1) {
-            System.out.println(valores);
-        }// Array
-        int array2[][] = {{1, 2, 3}, {4, 5, 6}};
-        for (int i = 0; i < array2.length; i++) {
-            for (int j = 0; j < array2[i].length; j++) {
-                System.out.println("Elemento: " + array2[i][j] + "/ posicion: " + i);
-            }
-        }// Array bidimensional
-        Vector<Integer> vector1 = new Vector<>();
-        vector1.add(1);
-        vector1.add(2);
-        vector1.add(3);
-        vector1.add(4);
-        vector1.add(5);
-        vector1.remove(1);
-        vector1.remove(1);
-        System.out.println(vector1); //Vector
+            reverse("pedro");
+            System.out.println();
+            String[] array1 = new String[]{"Hola", "que", "tal", "?"};
+            for (String valores : array1) {
+                System.out.println(valores);
+            }// Array
+            int array2[][] = {{1, 2, 3}, {4, 5, 6}};
+            for (int i = 0; i < array2.length; i++) {
+                for (int j = 0; j < array2[i].length; j++) {
+                    System.out.println("Elemento: " + array2[i][j] + "/ posicion: " + i);
+                }
+            }// Array bidimensional
+            Vector<Integer> vector1 = new Vector<>();
+            vector1.add(1);
+            vector1.add(2);
+            vector1.add(3);
+            vector1.add(4);
+            vector1.add(5);
+            vector1.remove(1);
+            vector1.remove(1);
+            System.out.println(vector1); //Vector
         /* El problema es que se duplicaria su capacidad cuando
         llegemos a su maxima capacidad esto haria trabajar a la maquina
         de forma innecesaria y repetir una accion muchas veces*/
-        ArrayList<String> array3 = new ArrayList<>();
-        array3.add("hola ");
-        array3.add("como ");
-        array3.add("estas ");
-        array3.add("pedro ");
-        for (String valores : array3) {
-            System.out.print(valores);
-        }
-        System.out.println();
-        LinkedList<String> array4 = new LinkedList<>(array3);
-        for (String valores : array4) {
-            System.out.print(valores);
-        }
-        System.out.println(); // Copiar en linkedlist
-        ArrayList<Integer> array5 = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            array5.add(i);
-        }
-        for (int j = 0; j < array5.size(); j++) {
-            if (array5.get(j) % 2 == 0) {
-                array5.remove(array5.get(j));
+            ArrayList<String> array3 = new ArrayList<>();
+            array3.add("hola ");
+            array3.add("como ");
+            array3.add("estas ");
+            array3.add("pedro ");
+            for (String valores : array3) {
+                System.out.print(valores);
             }
-        }
-        System.out.print(array5);
-        System.out.println(); //Eliminar pares
-        divideCero();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingresa carpeta a copiar:");
-        String fileIn = scanner.next();
-        System.out.println("Ingresa en que carpeta copiarlo:");
-        String fileOut = scanner.next();
-        copiaFichero(fileIn,fileOut); //Copia Fichero
-        programa();
+            System.out.println();
+            LinkedList<String> array4 = new LinkedList<>(array3);
+            for (String valores : array4) {
+                System.out.print(valores);
+            }
+            System.out.println(); // Copiar en linkedlist
+            ArrayList<Integer> array5 = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                array5.add(i);
+            }
+            for (int j = 0; j < array5.size(); j++) {
+                if (array5.get(j) % 2 == 0) {
+                    array5.remove(array5.get(j));
+                }
+            }
+            System.out.print(array5);
+            System.out.println(); //Eliminar pares
+            divideCero();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Ingresa carpeta a copiar:");
+            String fileIn = scanner.next();
+            System.out.println("Ingresa en que carpeta copiarlo:");
+            String fileOut = scanner.next();
+            copiaFichero(fileIn, fileOut); //Copia Fichero
+            programa();
 
-    }
+        }
 
         public static void programa() {
-        String[] usuarios = new String[1];
-        String[] claves = new String[1];
-        usuarios[0] = "pepe";
-        claves[0] = "123";
-        int menuInit;
-        try {
+            String[] usuarios = new String[1];
+            String[] claves = new String[1];
+            usuarios[0] = "pepe";
+            claves[0] = "123";
+            int menuInit;
+            try {
                 System.out.println("1- Iniciar sesion");
                 System.out.println("2- Registrarse");
                 System.out.println("3- Solicitar datos actuales");
@@ -155,34 +155,37 @@ public class Main {
                         System.out.println(user.getKey() + "\n" + user.getValue());
                     }
                 } // Pedir Claves y usuarios
-            }catch(Error e){
+            } catch (Error e) {
                 System.out.println(e.getMessage());
             }
-    } // Programa registros
-        public static void copiaFichero(String fileIn , String fileOut) {
+        } // Programa registros
 
-        try {
-            InputStream in = new FileInputStream(fileIn);
-            OutputStream out = new FileOutputStream(fileOut);
-            byte[] buf = new byte[1024];
-            int len;
-            while ((len = in.read(buf)) > 0){
-                out.write(buf,0,len);
+        public static void copiaFichero(String fileIn, String fileOut) {
+
+            try {
+                InputStream in = new FileInputStream(fileIn);
+                OutputStream out = new FileOutputStream(fileOut);
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = in.read(buf)) > 0) {
+                    out.write(buf, 0, len);
+                }
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
             }
-        }catch (IOException e){
-            System.err.println(e.getMessage());
-        }
-} // Copia fichero
-        public static int divideCero ()throws ArithmeticException{
-        int dividendo = 5 ;
-        int divisor = 1;
-            if (divisor == 0){
-                throw new ArithmeticException("Esto no puede hacerse" );
+        } // Copia fichero
+
+        public static int divideCero() throws ArithmeticException {
+            int dividendo = 5;
+            int divisor = 1;
+            if (divisor == 0) {
+                throw new ArithmeticException("Esto no puede hacerse");
             }
             System.out.println("Demo de codigo");
-        return dividendo / divisor;
-    } // Divide cero
-        public static String reverse (String texto){
+            return dividendo / divisor;
+        } // Divide cero
+
+        public static String reverse(String texto) {
             char[] alReves = texto.toCharArray();
             char dadaVuelta;
             String resul = "hola";
@@ -192,5 +195,5 @@ public class Main {
                 resul = Character.toString(dadaVuelta);
             }
             return resul;
-    } // Cadena Al reves
-}
+        } // Cadena Al reves
+    }
